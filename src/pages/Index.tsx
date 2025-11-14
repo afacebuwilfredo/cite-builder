@@ -748,17 +748,29 @@ const Index = () => {
                   <CardContent>
                     <div className="grid gap-4 md:grid-cols-3">
                       <div className="text-center p-4 border rounded-lg">
-                        <img src="./images/header_sample1.png" alt="Header Menu Sample" className="h-40 w-full object-contain mx-auto mb-2 rounded" />
+                        <ImageViewer
+                          src="./images/header_sample1.png"
+                          alt="Header Menu Sample"
+                          className="h-40 w-full object-contain mx-auto mb-2 rounded cursor-pointer"
+                        />
                         <h4 className="font-semibold mb-2">Header Menu</h4>
                         <p className="text-sm text-muted-foreground">Primary navigation for page top</p>
                       </div>
                       <div className="text-center p-4 border rounded-lg">
-                        <img src="./images/footer_sample1.png" alt="Footer Menu Sample" className="h-40 w-full object-contain mx-auto mb-2 rounded" />
+                        <ImageViewer
+                          src="./images/footer_sample1.png"
+                          alt="Footer Menu Sample"
+                          className="h-40 w-full object-contain mx-auto mb-2 rounded cursor-pointer"
+                        />
                         <h4 className="font-semibold mb-2">Footer Menu</h4>
                         <p className="text-sm text-muted-foreground">Secondary navigation for page bottom</p>
                       </div>
                       <div className="text-center p-4 border rounded-lg">
-                        <img src="./images/sidebar_sample1.png" alt="Sidebar Menu Sample" className="h-40 w-full object-contain mx-auto mb-2 rounded" />
+                        <ImageViewer
+                          src="./images/sidebar_sample1.png"
+                          alt="Sidebar Menu Sample"
+                          className="h-40 w-full object-contain mx-auto mb-2 rounded cursor-pointer"
+                        />
                         <h4 className="font-semibold mb-2">Sidebar Menu</h4>
                         <p className="text-sm text-muted-foreground">Side navigation for content areas</p>
                       </div>
