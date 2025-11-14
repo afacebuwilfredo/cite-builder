@@ -102,7 +102,7 @@ const Index = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+        <main className="relative py-6 lg:gap-10 lg:py-8 xl:grid">
           <div className="mx-auto w-full min-w-0">
             {/* Overview Section */}
             <section id="overview" className="mb-16">
