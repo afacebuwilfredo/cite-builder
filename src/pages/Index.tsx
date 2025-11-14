@@ -63,7 +63,7 @@ const Index = () => {
         <div className="container flex h-14 items-center">
           <div className="mr-4 flex">
             <a className="mr-6 flex items-center space-x-2" href="#">
-              <div className="h-6 w-6 bg-primary rounded" />
+              <img src="/favicon.ico" alt="Logo" className="h-6 w-6 rounded object-cover" />
               <span className="font-bold">Cite Builder Docs</span>
             </a>
           </div>
@@ -116,7 +116,7 @@ const Index = () => {
               <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2 h-24">
                       <Layout className="h-5 w-5" />
                       Multi-Brand Management
                     </CardTitle>
@@ -130,7 +130,7 @@ const Index = () => {
                 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2 h-24">
                       <Code className="h-5 w-5" />
                       Hybrid Editor
                     </CardTitle>
@@ -144,7 +144,7 @@ const Index = () => {
                 
                 <Card>
                   <CardHeader>
-                    <CardTitle className="flex items-center gap-2">
+                    <CardTitle className="flex items-center gap-2 h-24">
                       <Bot className="h-5 w-5" />
                       AI-Powered
                     </CardTitle>
