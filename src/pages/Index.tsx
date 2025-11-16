@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import Header from '@/components/Header';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -58,24 +60,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center">
-          <div className="mr-4 flex">
-            <a className="mr-6 flex items-center space-x-2" href="#">
-              <img src="/favicon.ico" alt="Logo" className="h-6 w-6 rounded object-cover" />
-              <span className="font-bold">Cite Builder Docs</span>
-            </a>
-          </div>
-          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <a href="cite-casts" className="transition-colors hover:text-foreground/80 text-foreground/60">CiteCast</a>
-              {/* <a href="#" className="transition-colors hover:text-foreground/80 text-foreground/60">API</a>
-              <a href="#" className="transition-colors hover:text-foreground/80 text-foreground/60">Support</a> */}
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <div className="container flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10">
         {/* Sidebar Navigation */}
