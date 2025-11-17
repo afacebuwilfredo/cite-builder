@@ -40,15 +40,35 @@ export default function EpisodePage() {
           </div>
         </main>
 
-        <aside className="w-full md:w-80 border-l p-4">
-          <h4 className="text-sm font-semibold mb-2">Other episodes</h4>
-          <ul className="space-y-1">
-            {tutorialEpisodes.map((ep) => (
-              <li key={ep.id} className={`p-2 ${ep.id === episode.id ? "bg-muted" : "hover:bg-muted/50"}`}>
-                <Link to={`/citecasts/${instructorId}/${tutorialId}/${ep.id}`}>{ep.number}. {ep.title}</Link>
-              </li>
-            ))}
-          </ul>
+        <aside className="w-full md:w-80 space-y-6">
+          {/* Instructor Info */}
+          <div className="border rounded-lg p-4 bg-card">
+            <h4 className="text-sm font-semibold mb-3">Instructor</h4>
+            <div className="flex flex-col items-center text-center">
+              <img src={instructor.avatar} alt={instructor.name} className="h-16 w-16 rounded-full object-cover mb-2" />
+              <Link to={`/citecasts/${instructor.id}`} className="font-semibold hover:underline">{instructor.name}</Link>
+              <p className="text-xs text-muted-foreground mt-1">{instructor.bio}</p>
+            </div>
+          </div>
+
+          {/* Tutorial Info */}
+          {/* <div className="border rounded-lg p-4 bg-card">
+            <h4 className="text-sm font-semibold mb-3">Tutorial</h4>
+            <h5 className="font-semibold text-sm mb-2">{tutorial.title}</h5>
+            <p className="text-xs text-muted-foreground">{tutorial.description}</p>
+          </div> */}
+
+          {/* Episodes List */}
+          <div className="border rounded-lg p-4 bg-card">
+            <h4 className="text-sm font-semibold mb-3">Episodes</h4>
+            <ul className="space-y-1 max-h-96 overflow-y-auto">
+              {tutorialEpisodes.map((ep) => (
+                <li key={ep.id} className={`p-2 rounded cursor-pointer transition-colors ${ep.id === episode.id ? "bg-primary text-primary-foreground" : "hover:bg-muted"}`}>
+                  <Link to={`/citecasts/${instructorId}/${tutorialId}/${ep.id}`} className="text-xs block">{ep.number}. {ep.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </aside>
       </div>
     </div>

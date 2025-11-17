@@ -5,11 +5,11 @@ export const episodes: Episode[] = [
   {
     id: "e-1",
     tutorialId: "tut-1",
-    title: "Intro & Setup",
+    title: "Introduction to Cite Builder",
     videoUrl:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
-    description: "Overview of the series and project setup.",
-    summary: "We scaffold the project and outline what we'll build.",
+      "https://storage.googleapis.com/loveme-assets/cite-builder-tutorial%20/into%20to%20cite%20builder.mp4",
+    description: "Overview to Cite Builde",
+    summary: "Get a quick overview of Cite Builder, your all-in-one platform for building and managing websites. Learn what the tool does and how it helps both beginners and experienced users streamline their workflow.",
     duration: "08:32",
     free: true,
     number: 1,
@@ -23,7 +23,7 @@ export const episodes: Episode[] = [
     description: "How to extract logic into reusable hooks.",
     summary: "We write `useFetch` and `useLocalStorage` examples.",
     duration: "14:10",
-    free: false,
+    free: true,
     number: 2,
   },
   // Episodes for tut-2

@@ -13,10 +13,10 @@ export default function TutorialPage() {
   const instructor = instructors.find((i) => i.id === instructorId);
   const tutorialEpisodes = episodes.filter((e) => e.tutorialId === tutorialId).sort((a, b) => a.number - b.number);
 
-  if (!tutorial || !instructor) return <div className="p-4">Tutorial or instructor not found.</div>;
-
-  // default play first episode
+  // default play first episode - move hook before conditional
   const [currentEpisode, setCurrentEpisode] = React.useState(tutorialEpisodes[0] || null);
+
+  if (!tutorial || !instructor) return <div className="p-4">Tutorial or instructor not found.</div>;
 
   return (
     <div className="min-h-screen bg-background">
@@ -44,7 +44,35 @@ export default function TutorialPage() {
           </div>
         </main>
 
-        <SidebarEpisodes episodes={tutorialEpisodes} instructorId={instructor.id} tutorialId={tutorial.id} />
+        <aside className="w-full md:w-80 space-y-6">
+          {/* Instructor Info */}
+          <div className="border rounded-lg p-4 bg-card">
+            <h4 className="text-sm font-semibold mb-3">Instructor</h4>
+            <div className="flex flex-col items-center text-center">
+              <img src={instructor.avatar} alt={instructor.name} className="h-16 w-16 rounded-full object-cover mb-2" />
+              <Link to={`/citecasts/${instructor.id}`} className="font-semibold hover:underline">{instructor.name}</Link>
+              <p className="text-xs text-muted-foreground mt-1">{instructor.bio}</p>
+            </div>
+          </div>
+
+          {/* Tutorial Info */}
+          <div className="border rounded-lg p-4 bg-card">
+            <h4 className="text-sm font-semibold mb-3">Tutorial Details</h4>
+            <div className="space-y-2">
+              <div>
+                <p className="text-xs text-muted-foreground">Episodes</p>
+                <p className="font-semibold">{tutorialEpisodes.length}</p>
+              </div>
+              {/* <div>
+                <p className="text-xs text-muted-foreground">Description</p>
+                <p className="text-xs mt-1">{tutorial.description}</p>
+              </div> */}
+            </div>
+          </div>
+
+          {/* Episodes List */}
+          <SidebarEpisodes episodes={tutorialEpisodes} instructorId={instructor.id} tutorialId={tutorial.id} />
+        </aside>
       </div>
     </div>
   );
