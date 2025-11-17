@@ -62,7 +62,7 @@ export default function CiteCastsIndex() {
                     return (
                       <Link key={t.id} to={`/citecasts/${t.instructorId}/${t.id}`} className="border rounded-lg bg-card p-4 shadow hover:shadow-lg transition-shadow">
                         <h3 className="font-semibold mb-2">{t.title}</h3>
-                        <p className="text-sm text-muted-foreground mb-3">{t.description}</p>
+                        <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{t.description}</p>
                         <div className="flex justify-between text-xs text-muted-foreground">
                           <span>{inst?.name}</span>
                           <span>{count} episodes</span>
