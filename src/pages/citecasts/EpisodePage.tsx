@@ -1,23 +1,30 @@
 import React from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import Header from '@/components/Header';
+import Header from "@/components/Header";
 import { episodes } from "../../data/episodes";
 import { tutorials } from "../../data/tutorials";
 import { instructors } from "../../data/instructors";
 import EpisodePlayer from "../../components/citecasts/EpisodePlayer";
 
 export default function EpisodePage() {
-  const { instructorId, tutorialId, episodeId } = useParams<{ instructorId: string; tutorialId: string; episodeId: string }>();
+  const { instructorId, tutorialId, episodeId } = useParams<{
+    instructorId: string;
+    tutorialId: string;
+    episodeId: string;
+  }>();
   const episode = episodes.find((e) => e.id === episodeId);
   const tutorial = tutorials.find((t) => t.id === tutorialId);
   const instructor = instructors.find((i) => i.id === instructorId);
 
   const navigate = useNavigate();
 
-  if (!episode || !tutorial || !instructor) return <div className="p-4">Episode not found.</div>;
+  if (!episode || !tutorial || !instructor)
+    return <div className="p-4">Episode not found.</div>;
 
   // compute prev / next
-  const tutorialEpisodes = episodes.filter((e) => e.tutorialId === tutorialId).sort((a, b) => a.number - b.number);
+  const tutorialEpisodes = episodes
+    .filter((e) => e.tutorialId === tutorialId)
+    .sort((a, b) => a.number - b.number);
   const idx = tutorialEpisodes.findIndex((e) => e.id === episodeId);
   const prev = tutorialEpisodes[idx - 1];
   const next = tutorialEpisodes[idx + 1];
@@ -30,13 +37,60 @@ export default function EpisodePage() {
         <main>
           <EpisodePlayer episode={episode} />
 
-          <div className="flex gap-2 mt-4">
-            {prev ? <button onClick={() => navigate(`/citecasts/${instructorId}/${tutorialId}/${prev.id}`)} className="btn">← Prev</button> : null}
-            {next ? <button onClick={() => navigate(`/citecasts/${instructorId}/${tutorialId}/${next.id}`)} className="btn">Next →</button> : null}
+          {/* navigation buttons */}
+          <div className="flex justify-between mt-4 gap-2 flex-col sm:flex-row">
+            {prev ? (
+              <button
+                onClick={() =>
+                  navigate(
+                    `/citecasts/${instructorId}/${tutorialId}/${prev.id}`
+                  )
+                }
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-shadow shadow-sm
+                 bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50
+                 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={`Previous episode ${prev.number}: ${prev.title}`}
+                title={`Previous: ${prev.title}`}
+              >
+                ← Prev
+              </button>
+            ) : (
+              <span className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded-md text-sm text-muted-foreground bg-muted/40">
+                ← Prev
+              </span>
+            )}
+
+            {next ? (
+              <button
+                onClick={() =>
+                  navigate(
+                    `/citecasts/${instructorId}/${tutorialId}/${next.id}`
+                  )
+                }
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-shadow shadow-sm
+                 bg-primary text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary/50
+                 disabled:opacity-50 disabled:cursor-not-allowed"
+                aria-label={`Next episode ${next.number}: ${next.title}`}
+                title={`Next: ${next.title}`}
+              >
+                Next →
+              </button>
+            ) : (
+              <span className="w-full sm:w-auto inline-flex items-center justify-center px-4 py-2 rounded-md text-sm text-muted-foreground bg-muted/40">
+                Next →
+              </span>
+            )}
           </div>
 
+          {/* back link */}
           <div className="mt-6">
-            <Link to={`/citecasts/${instructorId}/${tutorialId}`}>← Back to tutorial</Link>
+            <Link
+              to={`/citecasts/${instructorId}/${tutorialId}`}
+              className="inline-flex items-center gap-2 text-sm font-medium hover:underline"
+              aria-label="Back to tutorial"
+            >
+              ← Back to tutorial
+            </Link>
           </div>
         </main>
 
@@ -45,9 +99,20 @@ export default function EpisodePage() {
           <div className="border rounded-lg p-4 bg-card">
             <h4 className="text-sm font-semibold mb-3">Instructor</h4>
             <div className="flex flex-col items-center text-center">
-              <img src={instructor.avatar} alt={instructor.name} className="h-16 w-16 rounded-full object-cover mb-2" />
-              <Link to={`/citecasts/${instructor.id}`} className="font-semibold hover:underline">{instructor.name}</Link>
-              <p className="text-xs text-muted-foreground mt-1">{instructor.bio}</p>
+              <img
+                src={instructor.avatar}
+                alt={instructor.name}
+                className="h-16 w-16 rounded-full object-cover mb-2"
+              />
+              <Link
+                to={`/citecasts/${instructor.id}`}
+                className="font-semibold hover:underline"
+              >
+                {instructor.name}
+              </Link>
+              <p className="text-xs text-muted-foreground mt-1">
+                {instructor.bio}
+              </p>
             </div>
           </div>
 
@@ -63,8 +128,20 @@ export default function EpisodePage() {
             <h4 className="text-sm font-semibold mb-3">Episodes</h4>
             <ul className="space-y-1 max-h-96 overflow-y-auto">
               {tutorialEpisodes.map((ep) => (
-                <li key={ep.id} className={`p-2 rounded cursor-pointer transition-colors ${ep.id === episode.id ? "bg-primary text-primary-foreground" : "hover:bg-muted"}`}>
-                  <Link to={`/citecasts/${instructorId}/${tutorialId}/${ep.id}`} className="text-xs block">{ep.number}. {ep.title}</Link>
+                <li
+                  key={ep.id}
+                  className={`p-2 rounded cursor-pointer transition-colors ${
+                    ep.id === episode.id
+                      ? "bg-primary text-primary-foreground"
+                      : "hover:bg-muted"
+                  }`}
+                >
+                  <Link
+                    to={`/citecasts/${instructorId}/${tutorialId}/${ep.id}`}
+                    className="text-xs block"
+                  >
+                    {ep.number}. {ep.title}
+                  </Link>
                 </li>
               ))}
             </ul>
