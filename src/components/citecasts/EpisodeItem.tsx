@@ -28,7 +28,7 @@ export default function EpisodeItem({
           {episode.number}. {episode.title}
         </div>
         <div className="text-xs text-muted-foreground">
-          {episode.duration} • {episode.free ? "Free" : "Premium"}
+          {episode.duration} • {episode.free ? "Free" : "Video"}
         </div>
       </Link>
     </li>

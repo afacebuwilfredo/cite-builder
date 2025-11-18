@@ -32,7 +32,7 @@ export default function TutorialPage() {
           {/* Make the player clickable to open the episode page */}
           {currentEpisode ? (
             <Link to={`/citecasts/${instructor.id}/${tutorial.id}/${currentEpisode.id}`}>
-              <EpisodePlayer episode={currentEpisode} />
+              <EpisodePlayer episode={currentEpisode} summary="false"/>
             </Link>
           ) : (
             <EpisodePlayer episode={null} />
