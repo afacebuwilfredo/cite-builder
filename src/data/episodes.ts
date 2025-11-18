@@ -61,15 +61,15 @@ export const episodes: Episode[] = [
   },
   // Episodes for tut-2
   {
-    id: "e-3",
+    id: "e-6",
     tutorialId: "tut-2",
-    title: "Routing & Basic Endpoints",
+    title: "SOON: Routing & Basic Endpoints",
     videoUrl:
-      "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      "",
     description: "Create routes and simple CRUD endpoints.",
     summary: "A basic Express app with in-memory data.",
-    duration: "10:05",
-    free: false,
+    duration: "xx:xx",
+    free: true,
     number: 1,
   },
 ];

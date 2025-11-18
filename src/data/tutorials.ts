@@ -17,10 +17,10 @@ export const tutorials: Tutorial[] = [
   {
     id: "tut-2",
     instructorId: "dev-2",
-    title: "Create Pages",
-    description: "Create Pages, homepage, blog page and video page",
-    level: "Intermediate",
-    tags: ["pages", "tamplate", "image"],
+    title: "QA Testing",
+    description: "Web site tesing",
+    level: "Advanced",
+    tags: ["QA", "back-end", "front-end"],
   },
   {
     id: "tut-3",
@@ -33,10 +33,10 @@ export const tutorials: Tutorial[] = [
   {
     id: "tut-4",
     instructorId: "dev-2",
-    title: "Upload Images",
-    description: "apply image to pages",
-    level: "Intermediate",
-    tags: ["upload", "image", "files"],
+    title: "API and Routing",
+    description: "api",
+    level: "Advanced",
+    tags: ["API", "Routing", "back-end"],
   },
   {
     id: "tut-5",
@@ -46,4 +46,5 @@ export const tutorials: Tutorial[] = [
     level: "Intermediate",
     tags: ["upload", "FTP", "files"],
   },
+ 
 ];
