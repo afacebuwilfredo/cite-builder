@@ -43,7 +43,7 @@ const Index = () => {
     { id: 'menu-manager', label: 'Menu Manager', icon: Menu },
     { id: 'tags-system', label: 'Tags System', icon: Tag },
     { id: 'ftp-deployment', label: 'FTP / Deployment', icon: Upload },
-    { id: 'ai-assistant', label: 'AI Content Assistant', icon: Bot },
+    // { id: 'ai-assistant', label: 'AI Content Assistant', icon: Bot },
     { id: 'media-manager', label: 'Media Manager', icon: Image },
     { id: 'settings', label: 'Settings', icon: Settings },
     { id: 'troubleshooting', label: 'Troubleshooting', icon: HelpCircle },
@@ -131,12 +131,12 @@ const Index = () => {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2 h-24">
                       <Bot className="h-5 w-5" />
-                      AI-Powered
+                      Docs to Content
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground">
-                      Generate content automatically with built-in AI content assistant.
+                      Generate content automatically with built-in feature from docs to content.
                     </p>
                   </CardContent>
                 </Card>
@@ -517,7 +517,7 @@ const Index = () => {
                       <div>
                         <h4 className="font-semibold mb-2">Editing Options</h4>
                         <ul className="space-y-1 text-sm text-muted-foreground">
-                          <li>• Generate Content - AI-powered text generation</li>
+                          <li>• Docs to Content - auto fill form documents to page from</li>
                           <li>• Tiptap Editor - WYSIWYG content editor</li>
                           <li>• HTML/CSS/JavaScript Tabs - Code-level editing</li>
                           <li>• Templates Integration - Apply templates to page</li>
@@ -1006,7 +1006,7 @@ const Index = () => {
             </section>
 
             {/* AI Content Assistant Section */}
-            <section id="ai-assistant" className="mb-16">
+            {/* <section id="ai-assistant" className="mb-16">
               <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 AI Content Assistant
               </h2>
@@ -1083,7 +1083,7 @@ const Index = () => {
                   </CardContent>
                 </Card>
               </div>
-            </section>
+            </section> */}
 
             {/* Media Manager Section */}
             <section id="media-manager" className="mb-16">
