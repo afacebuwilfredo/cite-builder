@@ -59,6 +59,17 @@ export const episodes: Episode[] = [
     free: false,
     number: 5,
   },
+  {
+    id: "e-6",
+    tutorialId: "tut-1",
+    title: "Editing Page",
+    videoUrl: "https://storage.googleapis.com/loveme-assets/cite-builder-tutorial/edit_page.mp4",
+    description: "Editing Page",
+    summary: "Learn how to edit page",
+    duration: "2:40",
+    free: false,
+    number: 6,
+  },
   // Episodes for tut-2
   {
     id: "e-6",
